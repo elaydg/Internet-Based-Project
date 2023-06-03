@@ -1,3 +1,7 @@
+<?php
+session_start();
+ob_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -166,4 +170,5 @@
     })
 </script>
 </body>
+<?php ob_end_flush(); ?>
 </html>
