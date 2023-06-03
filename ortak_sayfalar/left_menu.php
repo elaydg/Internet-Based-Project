@@ -1,89 +1,64 @@
 <ul class="sidebar-menu" data-widget="tree">
-    <li class="header">MAIN NAVIGATION</li>
+
+
+    <li><a href="index.php"><i class="fa fa-home"></i> Home Page </a></li>
+
     <li class="treeview">
         <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+            <i class="fa fa-user"></i>
+            <span>Members</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angel-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="register.php"><i class="fa fa-edit"></i> Add Member </a></li>
+            <li><a href="member_list.php"><i class="fa fa-list"></i> Members List </a></li>
+        </ul>
+    </li>
+
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-edit"></i> <span>Books</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+            <?php if(isset($_SESSION['login']) == "true" and ($_SESSION['authority']) >= ($_SESSION['super_admin']) ) { ?>
+            <li><a href="add_book.php"><i class="fa fa-book"></i> Add Book </a></li>
+            <?php } ?>
+            <li><a href="book_list.php"><i class="fa fa-list"></i> Books </a></li>
+
         </ul>
     </li>
-    <li class="treeview">
-        <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Layout Options</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-            </span>
-        </a>
-        <ul class="treeview-menu">
-            <li><a href="layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-            <li><a href="layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li><a href="layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-        </ul>
+
     </li>
-    <li>
-        <a href="widgets.html">
-            <i class="fa fa-th"></i> <span>Widgets</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-green">Hot</small>
-            </span>
-        </a>
-    </li>
+
 
     <li class="treeview">
         <a href="#">
-            <i class="fa fa-edit"></i> <span>Forms</span>
+            <i class="fa fa-table"></i> <span> Lists </span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
         </a>
-        <ul class="treeview-menu">
-            <li><a href="forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-            <li><a href="forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
-            <li><a href="forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
-        </ul>
+
+    <ul class="treeview-menu">
+        <?php if(isset($_SESSION['login']) == 'true') { ?>
+        <li><a href="my_library.php?member_id=<?php echo $_SESSION['member_id']; ?>&komut=read"><i class="fa fa-list"></i> My Library </a> </li>
+        <?php } ?>
+        <li><a href="fav_books.php?komut=favbooks"><i class="fa fa-list"></i> Favorite Books </a></li>
+    </ul>
     </li>
 
-    </li>
+    <?php if(isset($_SESSION['login']) == "true") { ?>
 
-    <li class="treeview">
-        <a href="#">
-            <i class="fa fa-share"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-        </a>
-        <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            <li class="treeview">
-                <a href="#"><i class="fa fa-circle-o"></i> Level One
-                    <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                    <li class="treeview">
-                        <a href="#"><i class="fa fa-circle-o"></i> Level Two
-                            <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-        </ul>
-    </li>
-    <li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+    <li><a href="log_out.php"><i class="glyphicon glyphicon-log-out"></i> Logout </a></li>
+    <?php } ELSE { ?>
+    <li><a href="log_in.php"><i class="fa fa-key"></i> Login </a></li>
+    <?php } ?>
+
 </ul>
+
