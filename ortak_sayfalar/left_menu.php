@@ -12,7 +12,9 @@
             </span>
         </a>
         <ul class="treeview-menu">
+            <?php if(isset($_SESSION['login']) == "true" and ($_SESSION['authority']) >= ($_SESSION['super_admin']) ) { ?>
             <li><a href="register.php"><i class="fa fa-edit"></i> Add Member </a></li>
+            <?php } ?>
             <li><a href="member_list.php"><i class="fa fa-list"></i> Members List </a></li>
         </ul>
     </li>
