@@ -4,7 +4,7 @@
               <span class="label label-warning">10</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 3 notifications</li>
+              <li class="header">You have 9 notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
