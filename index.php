@@ -1,5 +1,6 @@
 <?php
 session_start();
+include ('connections/baglanti.php');
 ob_start(); ?>
 
 <!DOCTYPE html>
