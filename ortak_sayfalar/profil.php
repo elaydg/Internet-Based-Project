@@ -1,7 +1,10 @@
+
 <li class="dropdown user user-menu">
+
+
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-            <?php if(isset($_SESSION['login']) == "true") { ?>
+                <?php if(isset($_SESSION['login']) == "true") { ?>
                 <img src="images/users/<?php echo $_SESSION['user_pp'];?>" class="user-image" alt="User Image">
                 <span class="hidden-xs"><?php echo $_SESSION['user_name'];?></span>
 
