@@ -124,7 +124,7 @@ ob_start(); ?>
                         <div class="login-box-body">
                             <p class="login-box-msg">Sign in to start your session</p>
 
-                            <form action="log_in.php" method="post">
+                            <form action="giris.php" method="post">
 
 
                                 <div class="form-group has-feedback">

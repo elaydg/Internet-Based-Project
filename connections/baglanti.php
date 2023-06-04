@@ -2,20 +2,21 @@
 #File Name= "Connection_php _mysql.htm"
 #Type= "MYSQL"
 #HTTP= "true"
-$hostname_baglanti = "localhost";
-$database_baglanti = "kutuphane";
-$username_baglanti = "root";
-$password_baglanti = "";
 
-$baglanti = mysqli_connect($hostname_baglanti, $username_baglanti, $password_baglanti);
+$hostname = "localhost";
+$database = "kutuphane";
+$username = "root";
+$password = "";
+
+$baglanti = mysqli_connect($hostname, $username, $password, $database);
 
 if (!$baglanti) {
-    die("Veritabanına bağlanırken hata oluştu: " . mysqli_connect_error());
+    die("connection failed. " . mysqli_connect_error());
 }
 
 mysqli_query($baglanti, "SET NAMES UTF8");
 
-$sql = "CREATE DATABASE IF NOT EXISTS $database_baglanti";
+$sql = "CREATE DATABASE IF NOT EXISTS $database";
 
 if (mysqli_query($baglanti, $sql)) {
     // Veritabanı başarıyla oluşturuldu veya zaten mevcut
@@ -23,7 +24,7 @@ if (mysqli_query($baglanti, $sql)) {
     echo "VERITABANI OLUSTURURKEN HATA OLUSTU: " . mysqli_error($baglanti);
 }
 
-if (!mysqli_select_db($baglanti, $database_baglanti)) {
+if (!mysqli_select_db($baglanti, $database)) {
     echo "Veritabanı seçilemedi: " . mysqli_error($baglanti);
 }
 
