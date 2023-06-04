@@ -34,7 +34,7 @@ if (mysqli_num_rows($sorgu2)) {
 
     // eger giris yapan id no 1 ise yetkisi ne olursa olsun onu Otomat superadmin olarak yetkilendiriyoruz.
     if ($kayit['member_id'] == 1) {
-        $_SESSION['authority'] = "3";
+        $_SESSION['authority'] = "2";
     } else {
         $_SESSION['authority'] = $kayit['authority'];
     }
