@@ -18,9 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $book_name = $_POST['book_name'];
     $writer = $_POST['writer'];
     $publisher = $_POST['publisher'];
+    $publish_date = $_POST['publish_date'];
+    $book_img = $_POST['book_img'];
 
-    // Veritabanına veri eklemek için SQL sorgusu
-    $sql = "INSERT INTO books (book_name, writer, publisher) VALUES ('$book_name', '$writer', '$publisher')";
+
+// Yeni üye ekleme
+    $sql = "INSERT INTO books (book_name, writer, publisher, publish_date, book_img) VALUES ('$book_name', '$writer', '$publisher', '$publish_date', '$book_img')";
 
     // SQL sorgusunu çalıştırma
     if (mysqli_query($baglanti, $sql)) {
@@ -169,13 +172,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
                                 <div class="form-group has-feedback">
-                                    <input type="email" class="form-control" placeholder="Author" name="writer">
+                                    <input type="text" class="form-control" placeholder="Author" name="writer">
+                                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                </div>
+
+                                <div class="form-group has-feedback">
+                                    <input type="text" class="form-control" placeholder="Publish Date" name="publish_date">
                                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                 </div>
 
 
                                 <div class="form-group has-feedback">
                                     <input type="text" class="form-control" placeholder="Publisher" name="publisher">
+                                    <span class="fa fa-heart form-control-feedback"></span>
+                                </div>
+
+                                <div class="form-group has-feedback">
+                                    <input type="text" class="form-control" placeholder="Book Image" name="book_img">
                                     <span class="fa fa-heart form-control-feedback"></span>
                                 </div>
 

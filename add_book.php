@@ -18,10 +18,12 @@ if (!$baglanti) {
 $book_name = $_POST['book_name'];
 $writer = $_POST['writer'];
 $publisher = $_POST['publisher'];
+$publish_date = $_POST['publish_date'];
+$book_img = $_POST['book_img'];
 
 
 // Yeni üye ekleme
-$sql = "INSERT INTO books (book_name, writer, publisher) VALUES ('$book_name', '$writer', '$publisher')";
+$sql = "INSERT INTO books (book_name, writer, publisher, publish_date, book_img) VALUES ('$book_name', '$writer', '$publisher', '$publish_date', '$book_img')";
 
 if ($baglanti->query($sql) === TRUE) {
     echo "New member added successfully.";

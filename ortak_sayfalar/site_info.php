@@ -1,7 +1,7 @@
 <section class="content-header">
     <h1>
-        Safranbolu saat kulesi
-        <small>everything has began here</small>
+        <span style="color: orange;">The Place of the Bookworms!</span>
+
     </h1>
 
 </section>
