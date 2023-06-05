@@ -8,31 +8,31 @@ $password = "";
 $baglanti = mysqli_connect($hostname, $username, $password, $database);
 
 if (!$baglanti) {
-    die("connection failed. " . mysqli_connect_error());
+    die("Connection failed: " . mysqli_connect_error());
 }
+
 ob_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // POST verilerini alma
-    $user_name = $_POST['user_name'];
-    $user_email = $_POST['user_email'];
-    $authority = $_POST['authority'];
-    $user_password = $_POST['user_password'];
+    $book_name = $_POST['book_name'];
+    $writer = $_POST['writer'];
+    $publisher = $_POST['publisher'];
 
     // Veritabanına veri eklemek için SQL sorgusu
-    $sql = "INSERT INTO members (user_name, user_email, authority, user_password) VALUES ('$user_name', '$user_email', '$authority', '$user_password')";
+    $sql = "INSERT INTO books (book_name, writer, publisher) VALUES ('$book_name', '$writer', '$publisher')";
 
     // SQL sorgusunu çalıştırma
     if (mysqli_query($baglanti, $sql)) {
-        echo "New member added successfully.";
+        echo "New book added successfully.";
+        header("Location: index.php"); // Kullanıcıları listeleme sayfasına yönlendirme
+        exit;
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($baglanti);
     }
 
     // Veritabanı bağlantısını kapatma
     mysqli_close($baglanti);
-
-    header("Location: index.php"); // Kullanıcıları listeleme sayfasına yönlendirme
-    exit;
 }
 
 ?>
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <script>
         function redirectToPage() {
-            window.location.href = "add_member.php";
+            window.location.href = "add_book.php";
         }
     </script>
 
@@ -153,50 +153,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <div class="register-box">
                         <div class="register-logo">
-                            <a href="index2.html"><b>Welcome</b>Admin</a>
+                            <a href="index2.html"><b>Book</b>Page</a>
                         </div>
 
                         <div class="register-box-body">
-                            <p class="login-box-msg">Register a new membership</p>
+                            <p class="login-box-msg">Upload new book</p>
 
                             <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
 
                                 <div class="form-group has-feedback">
-                                    <input type="text" class="form-control" placeholder="User Name" name="user_name">
+                                    <input type="text" class="form-control" placeholder="Book Name" name="book_name">
                                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                                 </div>
 
 
                                 <div class="form-group has-feedback">
-                                    <input type="email" class="form-control" placeholder="Email" name="user_email">
+                                    <input type="email" class="form-control" placeholder="Author" name="writer">
                                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                 </div>
 
 
                                 <div class="form-group has-feedback">
-                                    <input type="text" class="form-control" placeholder="Authority" name="authority">
+                                    <input type="text" class="form-control" placeholder="Publisher" name="publisher">
                                     <span class="fa fa-heart form-control-feedback"></span>
                                 </div>
-
-
-                                <div class="form-group has-feedback">
-                                    <input type="password" class="form-control" placeholder="Password" name="user_password">
-                                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                                </div>
-
-
-                                <!-- <div class="form-group has-feedback">
-                                    <input type="password" class="form-control" placeholder="Retype password">
-                                    <span class=" fa fa-exchange form-control-feedback"></span>
-                                </div>-->
 
 
                                 <div class="row">
 
                                     <!-- /.col -->
                                     <div class="col-xs-6 text-right">
-                                        <button type="button" class="btn btn-primary btn-block btn-flat" onclick="redirectToPage()">Add Member</button>
+                                        <button type="button" class="btn btn-primary btn-block btn-flat" onclick="redirectToPage()">Add Book</button>
                                     </div>
                                     <!-- /.col -->
                                 </div>

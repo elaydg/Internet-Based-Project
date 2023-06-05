@@ -29,7 +29,7 @@
         </a>
         <ul class="treeview-menu">
             <?php if(isset($_SESSION['login']) == "true" and ($_SESSION['authority']) >= ($_SESSION['super_admin']) ) { ?>
-            <li><a href="add_book.php"><i class="fa fa-book"></i> Add Book </a></li>
+            <li><a href="add_product.php"><i class="fa fa-book"></i> Add Book </a></li>
             <?php } ?>
             <li><a href="book_list.php"><i class="fa fa-list"></i> Books </a></li>
 
@@ -39,21 +39,6 @@
     </li>
 
 
-    <li class="treeview">
-        <a href="#">
-            <i class="fa fa-table"></i> <span> Lists </span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-        </a>
-
-    <ul class="treeview-menu">
-        <?php if(isset($_SESSION['login']) == 'true') { ?>
-        <li><a href="my_library.php?member_id=<?php echo $_SESSION['member_id']; ?>&komut=read"><i class="fa fa-list"></i> My Library </a> </li>
-        <?php } ?>
-        <li><a href="fav_books.php?komut=favbooks"><i class="fa fa-list"></i> Favorite Books </a></li>
-    </ul>
-    </li>
 
     <?php if(isset($_SESSION['login']) == "true") { ?>
 

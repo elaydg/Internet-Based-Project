@@ -103,26 +103,19 @@ ob_start(); ?>
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Title</h3>
+                    <h3 class="box-title"></h3>
 
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                                title="Collapse">
-                            <i class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                            <i class="fa fa-times"></i></button>
-                    </div>
+        
                 </div>
                 <div class="box-body">
 
 
                     <div class="login-box">
                         <div class="login-logo">
-                            <a href="index.php"><b>Admin</b>LTE</a>
+                            <a href="index.php"><b>Welcome</b>!</a>
                         </div>
                         <!-- /.login-logo -->
                         <div class="login-box-body">
-                            <p class="login-box-msg">Sign in to start your session</p>
 
                             <form action="giris.php" method="post">
 
@@ -143,11 +136,7 @@ ob_start(); ?>
 
                                 <div class="row">
                                     <div class="col-xs-8">
-                                        <div class="checkbox icheck">
-                                            <label>
-                                                <input type="checkbox"> Remember Me
-                                            </label>
-                                        </div>
+
                                     </div>
                                     <!-- /.col -->
                                     <div class="col-xs-4">
@@ -157,17 +146,9 @@ ob_start(); ?>
                                 </div>
                             </form>
 
-                            <div class="social-auth-links text-center">
-                                <p>- OR -</p>
-                                <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-                                    Facebook</a>
-                                <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-                                    Google+</a>
-                            </div>
+
                             <!-- /.social-auth-links -->
 
-                            <a href="#">I forgot my password</a><br>
-                            <a href="register.html" class="text-center">Register a new membership</a>
 
                         </div>
                         <!-- /.login-box-body -->
@@ -177,7 +158,7 @@ ob_start(); ?>
 
                 </div>
                 <!-- /.box-body -->
-                <div class="box-footer"> Footer </div>
+                <div class="box-footer"> </div>
                 <!-- /.box-footer-->
             </div>
             <!-- /.box -->
