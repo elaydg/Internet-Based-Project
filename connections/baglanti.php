@@ -29,5 +29,5 @@ if (!mysqli_select_db($baglanti, $database)) {
 }
 
 mysqli_query($baglanti, "SET NAMES UTF8");
-// Hata giderme bölümü
+// hata giderme bölümüdür
 ?>
