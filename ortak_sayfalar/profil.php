@@ -24,7 +24,7 @@
                 <img src="images/users/<?php echo $_SESSION['user_pp'];?>" class="img-circle" alt="User Image">
                 <p>
                     <?php echo $_SESSION['user_name'];?>
-                    <small> Logged in </small>
+                    <small> WELCOME! </small>
                 </p>
 
 

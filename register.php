@@ -1,13 +1,47 @@
 <?php
 session_start();
-include ('connections/baglanti.php');
-ob_start(); ?>
+include('connections/baglanti.php');
+ob_start();
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // POST verilerini alma
+    $user_name = $_POST['user_name'];
+    $user_email = $_POST['user_email'];
+    $authority = $_POST['authority'];
+    $user_password = $_POST['user_password'];
+
+    // Veritabanına veri eklemek için SQL sorgusu
+    $sql = "INSERT INTO members (user_name, user_email, authority, user_password) VALUES ('$user_name', '$user_email', '$authority', '$user_password')";
+
+    // SQL sorgusunu çalıştırma
+    if (mysqli_query($baglanti, $sql)) {
+        echo "New member added successfully.";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($baglanti);
+    }
+
+    // Veritabanı bağlantısını kapatma
+    mysqli_close($baglanti);
+
+    header("Location: index.php"); // Kullanıcıları listeleme sayfasına yönlendirme
+    exit;
+}
+
+
+
+
+?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <script>
+        function redirectToPage() {
+            window.location.href = "add_member.php";
+        }
+    </script>
 
 
     <?php include "ortak_sayfalar/baslik.php"; ?>
@@ -103,24 +137,73 @@ ob_start(); ?>
             <!-- Default box -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Title</h3>
+                    <h3 class="box-title"></h3>
 
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                                title="Collapse">
-                            <i class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                            <i class="fa fa-times"></i></button>
-                    </div>
+
                 </div>
                 <div class="box-body">
 
-                Sayfa icerigi.
+
+
+                    <div class="register-box">
+                        <div class="register-logo">
+                            <a href="index2.html"><b>Welcome</b>Admin</a>
+                        </div>
+
+                        <div class="register-box-body">
+                            <p class="login-box-msg">Register a new membership</p>
+
+                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+
+
+                                <div class="form-group has-feedback">
+                                    <input type="text" class="form-control" placeholder="User Name" name="user_name">
+                                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                                </div>
+
+
+                                <div class="form-group has-feedback">
+                                    <input type="email" class="form-control" placeholder="Email" name="user_email">
+                                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                </div>
+
+
+                                <div class="form-group has-feedback">
+                                    <input type="text" class="form-control" placeholder="Authority" name="authority">
+                                    <span class="fa fa-heart form-control-feedback"></span>
+                                </div>
+
+
+                                <div class="form-group has-feedback">
+                                    <input type="password" class="form-control" placeholder="Password" name="user_password">
+                                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                                </div>
+
+
+                                <!-- <div class="form-group has-feedback">
+                                    <input type="password" class="form-control" placeholder="Retype password">
+                                    <span class=" fa fa-exchange form-control-feedback"></span>
+                                </div>-->
+
+
+                                <div class="row">
+
+                                    <!-- /.col -->
+                                    <div class="col-xs-6 text-right">
+                                        <button type="button" class="btn btn-primary btn-block btn-flat" onclick="redirectToPage()">Add Member</button>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                            </form>
+
+                        </div>
+                        <!-- /.form-box -->
+                    </div>
 
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                    Sayfa alt kısım.
+
                 </div>
                 <!-- /.box-footer-->
             </div>
@@ -172,6 +255,9 @@ ob_start(); ?>
         $('.sidebar-menu').tree()
     })
 </script>
+
+
+
 </body>
 <?php ob_end_flush(); ?>
 </html>

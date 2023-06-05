@@ -24,7 +24,7 @@ $sorgu2 = mysqli_query($baglanti, $query) or die(mysqli_error($baglanti));
 if (mysqli_num_rows($sorgu2)) {
     $kayit = mysqli_fetch_array($sorgu2);
 
-    $_SESSION['super_admin'] = "1";
+    $_SESSION['super_admin'] = "2";
     $_SESSION['login'] = "true";
     $_SESSION['user_name'] = $kayit['user_name'];
     $_SESSION['user_email'] = $kayit['user_email'];
