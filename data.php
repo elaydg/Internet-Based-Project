@@ -29,7 +29,7 @@ if ($b) {
 } else {
     echo "Failed to create members table. " . mysqli_error($baglanti) . "<br>";
 }
-?>*/
+?>*//
 
 
 
